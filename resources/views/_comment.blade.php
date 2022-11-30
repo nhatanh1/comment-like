@@ -178,13 +178,7 @@
                 _token: "{{ csrf_token() }}",
             },
             success: function(data) {
-                if (data) {
-                    if (data > 0) {
-                        document.getElementById('count-like-' + e).innerHTML = data;
-                    } else {
-                        document.getElementById('count-like-' + e).innerHTML = '';
-                    }
-                }
+                total_like();
             },
             error: function(error) {
                 alert('loi like');

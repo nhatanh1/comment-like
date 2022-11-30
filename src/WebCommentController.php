@@ -68,7 +68,7 @@ class WebCommentController extends CommentController
     public function like_total($id)
     {
         $data = $this->commentService->like_total($id);
-        return $data;
+        return null;
     }
 
     public function check_like($id)
