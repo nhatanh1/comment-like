@@ -178,7 +178,13 @@
                 _token: "{{ csrf_token() }}",
             },
             success: function(data) {
-                total_like();
+                if (data) {
+                    if (data > 0) {
+                        document.getElementById('count-like-' + e).innerHTML = data;
+                    } else {
+                        document.getElementById('count-like-' + e).innerHTML = '';
+                    }
+                }
             },
             error: function(error) {
                 alert('loi like');
@@ -196,8 +202,6 @@
             success: function(data) {
                 if (data['count'] > 0) {
                     document.getElementById('count-like-' + data['comment_id']).innerHTML = data['count'];
-                } else {
-                    document.getElementById('count-like-' + data['comment_id']).innerHTML = '0';
                 }
             },
             error: function(error) {
