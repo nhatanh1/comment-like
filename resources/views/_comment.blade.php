@@ -197,7 +197,7 @@
                 if (data['count'] > 0) {
                     document.getElementById('count-like-' + data['comment_id']).innerHTML = data['count'];
                 } else {
-                    document.getElementById('count-like-' + data['comment_id']).innerHTML = '';
+                    document.getElementById('count-like-' + data['comment_id']).innerHTML = '0';
                 }
             },
             error: function(error) {
