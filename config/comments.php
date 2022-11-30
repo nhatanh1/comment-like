@@ -7,9 +7,9 @@ return [
      * CustomComment model extending the Comment model shipped with the
      * package and change this configuration option to their extended model.
      */
-    'model' => \Nanhh\CommentLike\Comment::class,
+    'model' => \Nanhh\Comments\Comment::class,
 
-    'like' => \Nanhh\CommentLike\Like::class,
+    'like' => \Nanhh\Comments\Like::class,
 
     'user' => \App\Models\User::class,
 
@@ -18,19 +18,19 @@ return [
      * creating your own and pointing to it here.
      */
     'permissions' => [
-        'create-comment' => 'Nanhh\CommentLike\CommentPolicy@create',
-        'delete-comment' => 'Nanhh\CommentLike\CommentPolicy@delete',
-        'edit-comment' => 'Nanhh\CommentLike\CommentPolicy@update',
-        'reply-to-comment' => 'Nanhh\CommentLike\CommentPolicy@reply',
+        'create-comment' => 'Nanhh\Comments\CommentPolicy@create',
+        'delete-comment' => 'Nanhh\Comments\CommentPolicy@delete',
+        'edit-comment' => 'Nanhh\Comments\CommentPolicy@update',
+        'reply-to-comment' => 'Nanhh\Comments\CommentPolicy@reply',
     ],
 
     /**
      * The Comment Controller.
      * Change this to your own implementation of the CommentController.
-     * You can use the \Nanhh\CommentLike\CommentControllerInterface
-     * or extend the \Nanhh\CommentLike\CommentController.
+     * You can use the \Nanhh\Comments\CommentControllerInterface
+     * or extend the \Nanhh\Comments\CommentController.
      */
-    'controller' => '\Nanhh\CommentLike\WebCommentController',
+    'controller' => '\Nanhh\Comments\WebCommentController',
 
     /**
      * Disable/enable the package routes.

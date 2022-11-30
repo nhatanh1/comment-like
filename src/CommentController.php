@@ -1,6 +1,6 @@
 <?php
 
-namespace Nanhh\CommentLike;
+namespace Nanhh\Comments;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Config;

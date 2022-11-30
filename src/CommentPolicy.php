@@ -1,8 +1,8 @@
 <?php
 
-namespace Nanhh\CommentLike;
+namespace Nanhh\Comments;
 
-use Nanhh\CommentLike\Comment;
+use Nanhh\Comments\Comment;
 
 class CommentPolicy
 {

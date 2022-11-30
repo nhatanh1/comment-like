@@ -70,7 +70,7 @@
 </div>
 
 @isset($perPage)
-    {{ $grouped_comments->links('pagination::default') }}
+    {{ $grouped_comments->links('comments::default') }}
 @endisset
 
 

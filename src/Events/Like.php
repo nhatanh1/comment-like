@@ -1,9 +1,9 @@
 <?php
 
-namespace Nanhh\CommentLike\Events;
+namespace Nanhh\Comments\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Nanhh\CommentLike\Like as CommentsLike;
+use Nanhh\Comments\Like as CommentsLike;
 
 class Like
 {

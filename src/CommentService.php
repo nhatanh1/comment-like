@@ -1,6 +1,6 @@
 <?php
 
-namespace Nanhh\CommentLike;
+namespace Nanhh\Comments;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Nanhh\CommentLike;
+namespace Nanhh\Comments;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\App;

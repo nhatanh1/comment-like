@@ -1,12 +1,12 @@
 <?php
 
-namespace Nanhh\CommentLike;
+namespace Nanhh\Comments;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Config;
-use Nanhh\CommentLike\Events\Like as EventsLike;
-use Nanhh\CommentLike\Events\Unlike;
+use Nanhh\Comments\Events\Like as EventsLike;
+use Nanhh\Comments\Events\Unlike;
 
 class Like extends Model
 {
