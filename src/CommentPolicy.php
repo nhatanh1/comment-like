@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravelista\Comments;
+namespace Nanhh\CommentLike;
 
-use Laravelista\Comments\Comment;
+use Nanhh\CommentLike\Comment;
 
 class CommentPolicy
 {
@@ -53,4 +53,3 @@ class CommentPolicy
         return $user->getKey() != $comment->commenter_id;
     }
 }
-

@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravelista\Comments\Events;
+namespace Nanhh\CommentLike\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Laravelista\Comments\Like as CommentsLike;
+use Nanhh\CommentLike\Like as CommentsLike;
 
 class Like
 {

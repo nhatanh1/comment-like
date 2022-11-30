@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravelista\Comments;
+namespace Nanhh\CommentLike;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravelista\Comments\Events\CommentCreated;
-use Laravelista\Comments\Events\CommentUpdated;
-use Laravelista\Comments\Events\CommentDeleted;
+use Nanhh\CommentLike\Events\CommentCreated;
+use Nanhh\CommentLike\Events\CommentUpdated;
+use Nanhh\CommentLike\Events\CommentDeleted;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Config;
 

@@ -7,9 +7,9 @@ return [
      * CustomComment model extending the Comment model shipped with the
      * package and change this configuration option to their extended model.
      */
-    'model' => \Laravelista\Comments\Comment::class,
+    'model' => \Nanhh\CommentLike\Comment::class,
 
-    'like' => \Laravelista\Comments\Like::class,
+    'like' => \Nanhh\CommentLike\Like::class,
 
     'user' => \App\Models\User::class,
 
@@ -18,19 +18,19 @@ return [
      * creating your own and pointing to it here.
      */
     'permissions' => [
-        'create-comment' => 'Laravelista\Comments\CommentPolicy@create',
-        'delete-comment' => 'Laravelista\Comments\CommentPolicy@delete',
-        'edit-comment' => 'Laravelista\Comments\CommentPolicy@update',
-        'reply-to-comment' => 'Laravelista\Comments\CommentPolicy@reply',
+        'create-comment' => 'Nanhh\CommentLike\CommentPolicy@create',
+        'delete-comment' => 'Nanhh\CommentLike\CommentPolicy@delete',
+        'edit-comment' => 'Nanhh\CommentLike\CommentPolicy@update',
+        'reply-to-comment' => 'Nanhh\CommentLike\CommentPolicy@reply',
     ],
 
     /**
      * The Comment Controller.
      * Change this to your own implementation of the CommentController.
-     * You can use the \Laravelista\Comments\CommentControllerInterface
-     * or extend the \Laravelista\Comments\CommentController.
+     * You can use the \Nanhh\CommentLike\CommentControllerInterface
+     * or extend the \Nanhh\CommentLike\CommentController.
      */
-    'controller' => '\Laravelista\Comments\WebCommentController',
+    'controller' => '\Nanhh\CommentLike\WebCommentController',
 
     /**
      * Disable/enable the package routes.

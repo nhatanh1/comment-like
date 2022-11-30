@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravelista\Comments;
+namespace Nanhh\CommentLike;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\App;

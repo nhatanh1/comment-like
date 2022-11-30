@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravelista\Comments;
+namespace Nanhh\CommentLike;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Config;
-use Laravelista\Comments\Events\Like as EventsLike;
-use Laravelista\Comments\Events\Unlike;
+use Nanhh\CommentLike\Events\Like as EventsLike;
+use Nanhh\CommentLike\Events\Unlike;
 
 class Like extends Model
 {
