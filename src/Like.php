@@ -10,7 +10,7 @@ use Nanhh\Comments\Events\Unlike;
 
 class Like extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
     protected $table = 'like_comment';
     
