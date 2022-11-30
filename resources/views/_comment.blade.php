@@ -52,76 +52,69 @@
         </div>
 
         @can('edit-comment', $comment)
-            <div class="modal fade hidden" id="comment-modal-{{ $comment->getKey() }}"
+            <div class="w-full hidden" id="comment-modal-{{ $comment->getKey() }}"
                 onkeypress="enter('comment-modal-{{ $comment->getKey() }}')" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <form method="POST" action="{{ route('comments.update', $comment->getKey()) }} "
-                            id="comment-modal-{{ $comment->getKey() }}">
-                            @method('PUT')
-                            @csrf
-                            <div class="grid w-full gap-4 border p-2">
-                                <div class="modal-header flex justify-between">
-                                    <h5 class="modal-title">@lang('comments::comments.edit_comment')</h5>
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        onclick="closeModal('comment-modal-{{ $comment->getKey() }}')">
-                                        <span>&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group grid gap-2">
-                                        <label for="message">@lang('comments::comments.update_your_message_here')</label>
-                                        <textarea required class="form-control p-2 rounded bg-slate-200" name="message" rows="3">{{ $comment->comment }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="modal-footer text-right">
-                                    <button type="button" onclick="closeModal('comment-modal-{{ $comment->getKey() }}')"
-                                        class="btn btn-sm btn-outline-secondary text-uppercase uppercase border py-1 px-3 rounded border-red-500 hover:bg-red-500"
-                                        data-dismiss="modal">@lang('comments::comments.cancel')</button>
-                                    <button type="submit" id="btn-edit-comment"
-                                        class="btn btn-sm btn-outline-success text-uppercase uppercase border py-1 px-3 rounded border-sky-600 hover:bg-sky-600">@lang('comments::comments.update')</button>
-                                </div>
+                <form method="POST" action="{{ route('comments.update', $comment->getKey()) }} "
+                    id="comment-modal-{{ $comment->getKey() }}">
+                    @method('PUT')
+                    @csrf
+                    <div class="grid w-full gap-4 border p-2">
+                        <div class="modal-header flex justify-between">
+                            <h5 class="modal-title">@lang('comments::comments.edit_comment')</h5>
+                            <button type="button" class="close" data-dismiss="modal"
+                                onclick="closeModal('comment-modal-{{ $comment->getKey() }}')">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group grid gap-2">
+                                <label for="message">@lang('comments::comments.update_your_message_here')</label>
+                                <textarea required class="form-control p-2 rounded bg-slate-200" name="message" rows="3">{{ $comment->comment }}</textarea>
                             </div>
-                        </form>
+                        </div>
+                        <div class="modal-footer text-right">
+                            <button type="button" onclick="closeModal('comment-modal-{{ $comment->getKey() }}')"
+                                class="btn btn-sm btn-outline-secondary text-uppercase uppercase border py-1 px-3 rounded border-red-500 hover:bg-red-500"
+                                data-dismiss="modal">@lang('comments::comments.cancel')</button>
+                            <button type="submit" id="btn-edit-comment"
+                                class="btn btn-sm btn-outline-success text-uppercase uppercase border py-1 px-3 rounded border-sky-600 hover:bg-sky-600">@lang('comments::comments.update')</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         @endcan
 
         @can('reply-to-comment', $comment)
             <div class=" modal fade hidden" id="reply-modal-{{ $comment->getKey() }}" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <form method="POST" action="{{ route('comments.reply', $comment->getKey()) }}"
-                            id="reply-modal-{{ $comment->getKey() }}">
-                            @csrf
-                            <div class="grid gap-4 lg:gap-4 border rounded p-2">
-                                <div class="modal-header flex justify-between">
-                                    <h5 class="modal-title font-bold text-lg">@lang('comments::comments.reply_to_comment')</h5>
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        onclick="closeModal('reply-modal-{{ $comment->getKey() }}')">
-                                        <span>&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group grid gap-2">
-                                        <label for="message">@lang('comments::comments.enter_your_message_here')</label>
-                                        <textarea required class="form-control bg-slate-200 rounded p-2 border-2" name="message" rows="3"
-                                            placeholder="@lang('comments::comments.enter_your_message_here')" onkeypress="enter('reply-modal-{{ $comment->getKey() }}')"></textarea>
-                                    </div>
-                                </div>
-                                <div class="modal-footer text-right">
-                                    <button type="button" onclick="closeModal('reply-modal-{{ $comment->getKey() }}')"
-                                        class="btn btn-sm btn-outline-secondary text-uppercase uppercase border border-red-500 px-3 py-1 rounded hover:bg-red-500"
-                                        data-dismiss="modal">@lang('comments::comments.cancel')</button>
-                                    <button type="submit"
-                                        class="btn btn-sm btn-outline-success text-uppercase uppercase border border-sky-500 px-3 py-1 rounded hover:bg-sky-600">@lang('comments::comments.reply')</button>
-                                </div>
+                <form method="POST" action="{{ route('comments.reply', $comment->getKey()) }}"
+                    id="reply-modal-{{ $comment->getKey() }}">
+                    @csrf
+                    <div class="grid gap-4 lg:gap-4 border rounded p-2">
+                        <div class="modal-header flex justify-between">
+                            <h5 class="modal-title font-bold text-lg">@lang('comments::comments.reply_to_comment')</h5>
+                            <button type="button" class="close" data-dismiss="modal"
+                                onclick="closeModal('reply-modal-{{ $comment->getKey() }}')">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group grid gap-2">
+                                <label for="message">@lang('comments::comments.enter_your_message_here')</label>
+                                <textarea required class="form-control bg-slate-200 rounded p-2 border-2" name="message" rows="3"
+                                    placeholder="@lang('comments::comments.enter_your_message_here')" onkeypress="enter('reply-modal-{{ $comment->getKey() }}')"></textarea>
                             </div>
-
-                        </form>
+                        </div>
+                        <div class="modal-footer text-right">
+                            <button type="button" onclick="closeModal('reply-modal-{{ $comment->getKey() }}')"
+                                class="btn btn-sm btn-outline-secondary text-uppercase uppercase border border-red-500 px-3 py-1 rounded hover:bg-red-500"
+                                data-dismiss="modal">@lang('comments::comments.cancel')</button>
+                            <button type="submit"
+                                class="btn btn-sm btn-outline-success text-uppercase uppercase border border-sky-500 px-3 py-1 rounded hover:bg-sky-600">@lang('comments::comments.reply')</button>
+                        </div>
                     </div>
-                </div>
+
+                </form>
+
             </div>
         @endcan
 
@@ -178,11 +171,11 @@
                 _token: "{{ csrf_token() }}",
             },
             success: function(data) {
-                    if (data > 0) {
-                        document.getElementById('count-like-' + e).innerHTML = data;
-                    } else {
-                        document.getElementById('count-like-' + e).innerHTML = '';
-                    }
+                if (data > 0) {
+                    document.getElementById('count-like-' + e).innerHTML = data;
+                } else {
+                    document.getElementById('count-like-' + e).innerHTML = '';
+                }
             },
             error: function(error) {
                 alert('loi like');
@@ -208,7 +201,7 @@
         });
     }
 
-    // if ({{ Auth::check()}}) check_like();
+    // if ({{ Auth::check() }}) check_like();
     check_like();
 
     function check_like() {
@@ -236,15 +229,15 @@
                 var html = '';
                 for (let index = 0; index < data.length; index++) {
                     const element = data[index];
-                    html +=  '<div class="flex items-center mb-4">'
-                        + '<img class="mr-3 rounded-full" src="{{ asset("images/anh-avatar-dep-56.jpg") }}"'
-                        + 'alt=" Avatar" style="max-width: 50px; height: 50px">'
-                        + '<h5 class="mt-0 mb-1 font-bold text-base">' + element['name'] + '</h5>'
-                        + '</div>'
+                    html += '<div class="flex items-center mb-4">' +
+                        '<img class="mr-3 rounded-full" src="{{ asset('images/anh-avatar-dep-56.jpg') }}"' +
+                        'alt=" Avatar" style="max-width: 50px; height: 50px">' +
+                        '<h5 class="mt-0 mb-1 font-bold text-base">' + element['name'] + '</h5>' +
+                        '</div>'
                 }
                 document.getElementById('modal-user-like').innerHTML = html;
- 
-               
+
+
             },
             error: function(error) {
                 console.log(error);
