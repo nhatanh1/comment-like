@@ -168,7 +168,7 @@
         } else {
             document.getElementById('like-' + e).classList.add('active');
         }
-
+        console.log(e);
         $.ajax({
             type: 'POST',
             url: '{{ route('like.store') }}',
