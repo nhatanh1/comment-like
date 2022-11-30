@@ -134,7 +134,7 @@ class CommentService
 
         $data = $likeClass::where('comment_id', $comment_id)->get();
 
-        return $data->count;
+        return $data;
     }
 
     public function check_like($id)
