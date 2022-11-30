@@ -114,7 +114,7 @@ class CommentService
         return $reply;
     }
 
-    public function like(Request $request)
+    public function like($request)
     {
         $user_id = Auth::user()->id;
         $comment_id = $request->comment_id;
