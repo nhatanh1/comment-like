@@ -168,7 +168,7 @@
         } else {
             document.getElementById('like-' + e).classList.add('active');
         }
-        console.log(e);
+        // console.log(e);
         $.ajax({
             type: 'POST',
             url: '{{ route('like.store') }}',
@@ -178,13 +178,11 @@
                 _token: "{{ csrf_token() }}",
             },
             success: function(data) {
-                if (data) {
                     if (data > 0) {
                         document.getElementById('count-like-' + e).innerHTML = data;
                     } else {
                         document.getElementById('count-like-' + e).innerHTML = '';
                     }
-                }
             },
             error: function(error) {
                 alert('loi like');
