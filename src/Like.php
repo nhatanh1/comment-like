@@ -12,6 +12,8 @@ class Like extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'like_comment';
+    
     protected $with = ['commenter'];
 
     protected $fillable = [
