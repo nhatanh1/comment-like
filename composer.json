@@ -51,7 +51,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Nanhh\\CommentLike\\CommentLikeServiceProvider"
+                "Nanhh\\CommentLike\\ServiceProvider"
             ]
         }
     }
