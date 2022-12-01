@@ -114,6 +114,43 @@ class Product extends Model
 }
 ```
 
+### Install Tailwindcss
+
+install [tailwindcss](https://tailwindcss.com/docs/guides/laravel)
+
+
+### Install Tailwind elements
+
+
+Add the `tailwind-elements CDN` to the layout:
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+    .active {
+            background-color: #60A5FA;
+        }
+</style>
+```
+
+Require the js bundled file right before the body closing tag:
+```javascript
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+```
+
 
 ### Publish Config & configure (optional)
 
