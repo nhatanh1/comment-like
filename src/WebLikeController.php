@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 
-class WebLikeController extends Controller
+class WebLikeController extends LikeController
 {
     private CommentService $commentService;
 
