@@ -31,6 +31,7 @@ return [
      * or extend the \Nanhh\Comments\CommentController.
      */
     'controller' => '\Nanhh\Comments\WebCommentController',
+    'likecontroller' => '\Nanhh\Comments\WebLikeController',
 
     /**
      * Disable/enable the package routes.
