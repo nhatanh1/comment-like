@@ -85,7 +85,7 @@
         @endcan
 
         @can('reply-to-comment', $comment)
-            <div class=" modal fade hidden" id="reply-modal-{{ $comment->getKey() }}" tabindex="-1" role="dialog">
+            <div class=" hidden" id="reply-modal-{{ $comment->getKey() }}" tabindex="-1" role="dialog">
                 <form method="POST" action="{{ route('comments.reply', $comment->getKey()) }}"
                     id="reply-modal-{{ $comment->getKey() }}">
                     @csrf
