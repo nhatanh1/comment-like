@@ -5,7 +5,7 @@
 @endphp
 
 <div id="comment-{{ $comment->getKey() }}" class="media flex">
-    <img class="mr-3 rounded-full" src="{{ asset('images/anh-avatar-dep-56.jpg') }}"
+    <img class="mr-3 rounded-full" src="{{ Config::get('defaut-img') }}"
         alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar" style="max-width: 70px; height: 70px">
     <div class="media-body grid gap-2 w-full">
         <div class="grid bg-slate-200 rounded p-2 w-full">
