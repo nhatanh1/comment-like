@@ -5,10 +5,10 @@
 @endphp
 
 <div id="comment-{{ $comment->getKey() }}" class="media flex">
-    <img class="mr-3 rounded-full" src="{{ Config::get('defaut-img') }}"
-        alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar" style="max-width: 70px; height: 70px">
-    <div class="media-body grid gap-2 w-full">
-        <div class="grid bg-slate-200 rounded p-2 w-full">
+    <img class="mr-3 rounded-full" src="https://as1.ftcdn.net/v2/jpg/03/46/83/96/1000_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+        alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar" style="max-width: 50px; height: 50px">
+    <div class="media-body grid gap-4 w-full">
+        <div class="grid bg-slate-200 rounded-xl px-3 py-4 w-full gap-3">
             <h5 class="mt-0 mb-1 font-bold text-base">{{ $comment->commenter->name ?? $comment->guest_name }} <small
                     class="text-muted font-thin"> - {{ $comment->created_at->diffForHumans() }}</small></h5>
             <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
@@ -17,24 +17,24 @@
         <div class="flex justify-between px-4">
             <div class="flex gap-3">
                 @auth
-                    <button class="rounded-2xl px-4 border border-sky-400 hover:bg-slate-400 active:bg-sky-400"
+                    <button class="rounded-2xl px-4 border-2 border-sky-400 hover:bg-slate-400 active:bg-sky-400"
                         id="like-{{ $comment->getKey() }}" value="0"
                         onclick="likeComment({{ $comment->getKey() }})">@lang('comments::comments.like')</button>
                 @endauth
                 @can('reply-to-comment', $comment)
                     <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" id="reple-modal"
                         onclick="openModal('reply-modal-{{ $comment->getKey() }}')"
-                        class="rounded-xl px-3  border border-sky-400 hover:bg-sky-400">@lang('comments::comments.reply')</button>
+                        class="rounded-xl px-3  border-2 border-sky-400 hover:bg-sky-400">@lang('comments::comments.reply')</button>
                 @endcan
                 @can('edit-comment', $comment)
                     <button data-toggle="modal" data-target="#comment-modal-{{ $comment->getKey() }}" id="comment-modal"
                         onclick="openModal('comment-modal-{{ $comment->getKey() }}')"
-                        class="rounded-xl px-3  border border-sky-400 hover:bg-sky-400">@lang('comments::comments.edit')</button>
+                        class="rounded-xl px-3  border-2 border-sky-400 hover:bg-sky-400">@lang('comments::comments.edit')</button>
                 @endcan
                 @can('delete-comment', $comment)
                     <a href="{{ route('comments.destroy', $comment->getKey()) }}"
                         onclick="event.preventDefault();document.getElementById('comment-delete-form-{{ $comment->getKey() }}').submit();"
-                        class="rounded-xl px-3  border border-red-400 hover:bg-red-400">@lang('comments::comments.delete')</a>
+                        class="rounded-xl px-3  border-2 border-red-400 hover:bg-red-400">@lang('comments::comments.delete')</a>
                     <form id="comment-delete-form-{{ $comment->getKey() }}"
                         action="{{ route('comments.destroy', $comment->getKey()) }}" method="POST" style="display: none;">
                         @method('DELETE')
@@ -43,7 +43,7 @@
                 @endcan
             </div>
 
-            <div class="-translate-y-5 bg-white border border-sky-600 rounded-xl px-2 text-sky-600"
+            <div class="-translate-y-7 bg-white border-2 border-sky-600 rounded-xl px-2 text-sky-600"
                 data-bs-toggle="modal" data-bs-target="#exampleModalScrollable"
                 onclick="userLike({{ $comment->getKey() }})">
                 <span id="count-like-{{ $comment->getKey() }}"></span>
@@ -58,14 +58,7 @@
                     id="comment-modal-{{ $comment->getKey() }}">
                     @method('PUT')
                     @csrf
-                    <div class="grid w-full gap-4 border p-2">
-                        <div class="modal-header flex justify-between">
-                            <h5 class="modal-title">@lang('comments::comments.edit_comment')</h5>
-                            <button type="button" class="close" data-dismiss="modal"
-                                onclick="closeModal('comment-modal-{{ $comment->getKey() }}')">
-                                <span>&times;</span>
-                            </button>
-                        </div>
+                    <div class="grid w-full gap-4 p-4">
                         <div class="modal-body">
                             <div class="form-group grid gap-2">
                                 <label for="message">@lang('comments::comments.update_your_message_here')</label>
@@ -74,10 +67,10 @@
                         </div>
                         <div class="modal-footer text-right">
                             <button type="button" onclick="closeModal('comment-modal-{{ $comment->getKey() }}')"
-                                class="btn btn-sm btn-outline-secondary text-uppercase uppercase border py-1 px-3 rounded border-red-500 hover:bg-red-500"
+                                class="btn btn-sm btn-outline-secondary text-uppercase uppercase border-2 py-1 px-3 rounded border-red-500 hover:bg-red-500"
                                 data-dismiss="modal">@lang('comments::comments.cancel')</button>
                             <button type="submit" id="btn-edit-comment"
-                                class="btn btn-sm btn-outline-success text-uppercase uppercase border py-1 px-3 rounded border-sky-600 hover:bg-sky-600">@lang('comments::comments.update')</button>
+                                class="btn btn-sm btn-outline-success text-uppercase uppercase border-2 py-1 px-3 rounded border-sky-600 hover:bg-sky-600">@lang('comments::comments.update')</button>
                         </div>
                     </div>
                 </form>
@@ -85,31 +78,30 @@
         @endcan
 
         @can('reply-to-comment', $comment)
-            <div class=" hidden" id="reply-modal-{{ $comment->getKey() }}" tabindex="-1" role="dialog">
+            <div class="hidden" id="reply-modal-{{ $comment->getKey() }}" tabindex="-1" role="dialog">
                 <form method="POST" action="{{ route('comments.reply', $comment->getKey()) }}"
                     id="reply-modal-{{ $comment->getKey() }}">
                     @csrf
-                    <div class="grid gap-4 lg:gap-4 border rounded p-2">
-                        <div class="modal-header flex justify-between">
+                    <div class="grid gap-4 lg:gap-4 rounded p-2">
+                        {{-- <div class="modal-header flex justify-between">
                             <h5 class="modal-title font-bold text-lg">@lang('comments::comments.reply_to_comment')</h5>
                             <button type="button" class="close" data-dismiss="modal"
                                 onclick="closeModal('reply-modal-{{ $comment->getKey() }}')">
                                 <span>&times;</span>
                             </button>
-                        </div>
+                        </div> --}}
                         <div class="modal-body">
                             <div class="form-group grid gap-2">
-                                <label for="message">@lang('comments::comments.enter_your_message_here')</label>
-                                <textarea required class="form-control bg-slate-200 rounded p-2 border-2" name="message" rows="3"
-                                    placeholder="@lang('comments::comments.enter_your_message_here')" onkeypress="enter('reply-modal-{{ $comment->getKey() }}')"></textarea>
+                                <textarea required class="form-control bg-slate-200 rounded-lg p-4 border-2" name="message" rows="3"
+                                    placeholder="@lang('comments::comments.reply_your_message_here')" onkeypress="enter('reply-modal-{{ $comment->getKey() }}')"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer text-right">
                             <button type="button" onclick="closeModal('reply-modal-{{ $comment->getKey() }}')"
-                                class="btn btn-sm btn-outline-secondary text-uppercase uppercase border border-red-500 px-3 py-1 rounded hover:bg-red-500"
+                                class="btn btn-sm btn-outline-secondary text-uppercase uppercase border-2 border-red-500 px-3 py-1 rounded hover:bg-red-500"
                                 data-dismiss="modal">@lang('comments::comments.cancel')</button>
                             <button type="submit"
-                                class="btn btn-sm btn-outline-success text-uppercase uppercase border border-sky-500 px-3 py-1 rounded hover:bg-sky-600">@lang('comments::comments.reply')</button>
+                                class="btn btn-sm btn-outline-success text-uppercase uppercase border-2 border-sky-500 px-3 py-1 rounded hover:bg-sky-600">@lang('comments::comments.reply')</button>
                         </div>
                     </div>
 
@@ -193,6 +185,8 @@
             success: function(data) {
                 if (data['count'] > 0) {
                     document.getElementById('count-like-' + data['comment_id']).innerHTML = data['count'];
+                } else {
+                    document.getElementById('count-like-' + data['comment_id']).innerHTML = '';
                 }
             },
             error: function(error) {
@@ -201,7 +195,6 @@
         });
     }
 
-    // if ({{ Auth::check() }}) check_like();
     check_like();
 
     function check_like() {
@@ -230,7 +223,7 @@
                 for (let index = 0; index < data.length; index++) {
                     const element = data[index];
                     html += '<div class="flex items-center mb-4">' +
-                        '<img class="mr-3 rounded-full" src="{{ asset('images/anh-avatar-dep-56.jpg') }}"' +
+                        '<img class="mr-3 rounded-full" src="https://as1.ftcdn.net/v2/jpg/03/46/83/96/1000_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"' +
                         'alt=" Avatar" style="max-width: 50px; height: 50px">' +
                         '<h5 class="mt-0 mb-1 font-bold text-base">' + element['name'] + '</h5>' +
                         '</div>'

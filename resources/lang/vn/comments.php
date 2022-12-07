@@ -22,4 +22,5 @@ return [
     'write_comments' => 'Viết bình luận...',
     'like' => 'Thích',
     'unlike' => 'Bỏ thích',
+    'reply_your_message_here' => 'Phản hồi ...',
 ];

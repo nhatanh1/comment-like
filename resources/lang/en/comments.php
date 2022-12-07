@@ -22,4 +22,5 @@ return [
     'write_comments' => 'Write comments here:',
     'like' => 'Like',
     'unlike' => 'Unlike',
+    'reply_your_message_here' => 'Reply your message here',
 ];
